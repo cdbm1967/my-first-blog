@@ -1,34 +1,13 @@
-{% load static %}
-<html>
-    <head>
-        <title>Django blog</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    </head>
-    <body>
-        <div class="page-header">
-            <h1><a href="/">Django Blog</a></h1>
-            Welcome to my "Blog".  In reality it is a collection of various articles found
-            by me on the web.<p />
-        </div>
-        <hr align=left width=100% size=2>
+{% extends 'blog/base.html' %}
 
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                    {% for post in posts %}
-                        <div class="post">
-                            <h2><a href="">{{ post.title }}</a></h2>
-                            <p>{{ post.text|linebreaksbr }}</p>
-                            <div class="date">
-                                <p>Published: {{ post.published_date }}</p>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+            <div class="date">
+                <p>Published: {{ post.published_date }}</p>
             </div>
         </div>
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}

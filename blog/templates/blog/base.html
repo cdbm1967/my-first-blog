@@ -9,24 +9,13 @@
     </head>
     <body>
         <div class="page-header">
-            <h1><a href="/">Django Blog</a></h1>
-            Welcome to my "Blog".  In reality it is a collection of various articles found
-            by me on the web.<p />
+            <h1><a href="/">My Django Blog</a></h1>
         </div>
-        <hr align=left width=100% size=2>
-
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
-                    {% for post in posts %}
-                        <div class="post">
-                            <h2><a href="">{{ post.title }}</a></h2>
-                            <p>{{ post.text|linebreaksbr }}</p>
-                            <div class="date">
-                                <p>Published: {{ post.published_date }}</p>
-                            </div>
-                        </div>
-                    {% endfor %}
+                {% block content %}
+                {% endblock %}
                 </div>
             </div>
         </div>
